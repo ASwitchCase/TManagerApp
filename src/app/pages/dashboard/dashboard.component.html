@@ -1,0 +1,46 @@
+
+<app-navbar></app-navbar>
+<mat-tab-group class="tab-group">
+    <mat-tab label="Territories">
+        <div class="page-container">
+            <mat-card class="territories-container">
+                <form class="searchbar">
+                    <mat-form-field class="searchbar-container">
+                      <mat-label>Search Name or Territory Id</mat-label>
+                      <input matInput placeholder="Ex. John Doe">
+                      <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+                    </mat-form-field>
+                </form>
+
+                <div class="list-container">
+                    <app-territory 
+                        (onUpdateTerritoryE)="handleUpdateTerritory(territory)" 
+                        (onEmptyTerritoryE)="handleEmptyTerritory(territory)"
+                        *ngFor="let territory of territories$ " 
+                        [territory] = "territory"
+                    >
+                    </app-territory>             
+                </div>
+                  
+            </mat-card>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Publishers">
+        <div class="page-container">
+            <mat-card class="territories-container">
+                <form class="searchbar">
+                    <mat-form-field class="searchbar-container">
+                      <mat-label>Search Name</mat-label>
+                      <input matInput placeholder="Ex. John Doe">
+                      <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+                    </mat-form-field>
+                </form>
+                <div class="list-container">
+                    <app-publisher *ngFor="let publisher of publishers$" [publisher] = "publisher"></app-publisher>             
+                </div>
+            </mat-card>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+

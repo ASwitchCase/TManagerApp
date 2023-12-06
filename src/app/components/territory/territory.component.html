@@ -1,0 +1,26 @@
+<div class="card-container">
+    <div class="top">
+        <h1>{{territory.territory_id}}</h1>
+        <button *ngIf="this.territory.assigned_publisher === null" (click)="onOpenAddPublisher(territory)" mat-fab color="accent" aria-label="Example icon button with a delete icon">
+            <mat-icon>add</mat-icon>
+        </button>
+
+        <button *ngIf="territory.assigned_publisher !== null" (click)="onOpenCompleteTerritory(territory)" mat-fab color="accent" aria-label="Example icon button with a delete icon">
+            <mat-icon>assignment_turned_in</mat-icon>
+        </button>
+    </div>
+    <div class="bottom">
+        <h2>{{territory.assigned_publisher === null? "No Publisher" : territory.assigned_publisher.name}}</h2>
+
+        <button [matMenuTriggerFor]="tMenu" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #tMenu="matMenu">
+            <button *ngIf="territory.assigned_publisher !== null" mat-menu-item>Edit</button>
+            <button mat-menu-item (click)="onOpenDetails()">Details</button>
+            <button mat-menu-item>Record</button>
+        </mat-menu>
+        
+    </div>
+</div>

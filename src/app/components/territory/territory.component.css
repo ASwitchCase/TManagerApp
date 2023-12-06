@@ -1,0 +1,33 @@
+.card-container{
+    border: 1px solid rgb(0, 94, 71);
+    border-radius: 5px;
+
+    height: 180px;
+    width: 300px;
+    margin: 10px;
+}
+
+.top{
+    background-color: rgb(122, 237, 199);
+    height: 39%;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom{
+    height: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+h1{
+    color: rgb(52, 101, 86);
+}

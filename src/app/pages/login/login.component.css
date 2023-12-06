@@ -1,0 +1,36 @@
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 600px;
+    width: 370px;
+    padding:10px;
+}
+
+.signin{
+    height: 50px;
+    width: 50%;
+}
+
+.page-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    height: 700px;
+}
+
+.creds-container{
+    width: 100%;
+}
+
+.logo{
+    width: 360px;
+    margin: 10px;
+
+    border-radius: 5px;
+}

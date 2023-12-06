@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Enter Publisher for Territory {{data.territory.territory_id}}</h1>
+<div class="enter-field">
+    <mat-form-field class="user-info" >
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="dto.name">
+    </mat-form-field>
+    <mat-form-field class="user-info" >
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="dto.email">
+    </mat-form-field>
+    <mat-form-field class="user-info" >
+        <mat-label>Phone</mat-label>
+        <input matInput [(ngModel)]="dto.phone">
+    </mat-form-field>
+
+    <section class="button-contianer">
+        <div class="buttons" mat-dialog-actions>
+            <button mat-raised-button (click)="onCancel()" color="warn">Cancel</button>
+            <button mat-raised-button [mat-dialog-close]="dto" color="accent"
+                       cdkFocusInitial>Submit</button>
+          </div>
+    </section>
+</div>

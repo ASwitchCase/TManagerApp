@@ -1,0 +1,23 @@
+@import "../node_modules/@angular/material/theming";
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&family=Montserrat&family=PT+Sans:wght@700&display=swap');
+
+@include mat-core();
+
+$my-primary: mat-palette($mat-teal,A400);
+$my-accent: mat-palette($mat-cyan,800);
+$my-typography: mat-typography-config(
+    $font-family: 'Montserrat'
+);
+
+
+$my-theme: mat-light-theme((
+    color: (
+        primary: $my-primary,
+        accent: $my-accent
+    ),
+    typography: $my-typography
+)
+    
+);
+
+@include angular-material-theme($my-theme)
