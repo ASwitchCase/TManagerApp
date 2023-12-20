@@ -27,4 +27,8 @@ export class PublisherService {
   update(id: string, publisher : Publisher): Promise<void> {
     return this.dbRef.doc(id).update(publisher);
   }
+
+  delete(id: string){
+    return this.dbRef.doc(id).delete();
+  }
 }

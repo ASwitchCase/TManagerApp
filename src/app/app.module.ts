@@ -13,6 +13,7 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import {MatMenuModule} from '@angular/material/menu';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,8 @@ import { AddTerrtoryPopupComponent } from './components/add-terrtory-popup/add-t
 import { CompleteTerrtoryPopupComponent } from './components/complete-terrtory-popup/complete-terrtory-popup.component';
 import { EditPopupComponent } from './components/edit-popup/edit-popup.component';
 import { DetailsPopupComponent } from './components/details-popup/details-popup.component';
+import { DeletePublisherPopupComponent } from './components/delete-publisher-popup/delete-publisher-popup.component';
+import { AssignToPublisherPopupComponent } from './components/assign-to-publisher-popup/assign-to-publisher-popup.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyANXxiNezN7C2nbii7lITb6BiMywR3Pnt8",
@@ -52,6 +55,8 @@ const firebaseConfig = {
     CompleteTerrtoryPopupComponent,
     EditPopupComponent,
     DetailsPopupComponent,
+    DeletePublisherPopupComponent,
+    AssignToPublisherPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +73,7 @@ const firebaseConfig = {
     MatDialogModule,
     MatSnackBarModule,
     MatMenuModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // for firestore
     provideFirebaseApp(() => initializeApp(firebaseConfig)),

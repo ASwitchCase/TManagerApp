@@ -5,15 +5,15 @@
         <img class="logo" src="/assets/imgs/TM-logo.png">
         <mat-form-field class="creds-container">
             <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="pat@example.com">
+            <input matInput placeholder="pat@example.com" [(ngModel)]="email">
         </mat-form-field>
         <mat-form-field class="creds-container">
             <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'">
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
-        <button class="signin" mat-raised-button color="primary" routerLink="/dashboard">Sign In</button>
+        <button class="signin" mat-raised-button color="primary" (click)="signIn(email,password)">Sign In</button>
     </mat-card>
 </div>

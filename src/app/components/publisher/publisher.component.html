@@ -1,8 +1,13 @@
 <div class="card-container">
     <mat-icon color="accent" class="icon">account_circle</mat-icon>
-    <h2>{{publisher.name}}</h2>
+    <h3>{{publisher.name}}</h3>
 
-    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+    <button mat-icon-button [matMenuTriggerFor]="pMenu" aria-label="Example icon button with a vertical three dot icon">
         <mat-icon>more_vert</mat-icon>
     </button>
+
+    <mat-menu #pMenu="matMenu">
+        <button mat-menu-item (click)="openDeletePublisher(this.publisher)">Delete</button>
+        <button mat-menu-item *ngIf="publisher !== null" (click)="openAssignTerritory(publisher)" >Assign Territory</button>
+    </mat-menu>
 </div>

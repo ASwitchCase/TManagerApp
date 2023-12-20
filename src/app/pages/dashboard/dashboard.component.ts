@@ -4,6 +4,7 @@ import { collection } from 'firebase/firestore';
 import { Observable, map } from 'rxjs';
 import { Publisher } from 'src/Models/Publisher';
 import { Territory } from 'src/Models/Territory';
+import { EmailService } from 'src/app/services/email.service';
 import { PublisherService } from 'src/app/services/publisher.service';
 import { TerritoryService } from 'src/app/services/territory.service';
 
@@ -17,7 +18,11 @@ export class DashboardComponent {
   territories$ : Territory[] = []
   publishers$ : Publisher[] = []
 
-  constructor(private territoryService : TerritoryService, private publisherService : PublisherService){
+  constructor(
+    private territoryService : TerritoryService, 
+    private publisherService : PublisherService, 
+    private emailService: EmailService
+    ){
     //const territoryCollection = collection(this.firestore,'territories')
     //const publisherCollection = collection(this.firestore,'publishers')
 
@@ -70,6 +75,9 @@ export class DashboardComponent {
     }
 
     this.territoryService.update(territory._id, territory )
+    if(territory.assigned_publisher !== null){
+      this.emailService.notifyPublisher(territory.assigned_publisher,territory).subscribe(res =>{})
+    }
     
   }
 
@@ -86,6 +94,19 @@ export class DashboardComponent {
     }
     territory.assigned_publisher = null
     this.territoryService.update(territory._id, territory)
+  }
+
+  handleDeletePublisher(publisher : Publisher){
+    if(publisher.assigned_territory !== null){
+      this.territories$.find(t => {
+        if(t._id === publisher.assigned_territory){
+          t.assigned_publisher = null
+          this.territoryService.update(t._id,t)
+        }
+      })
+    }
+      
+    this.publisherService.delete(publisher._id)
   }
 
 }

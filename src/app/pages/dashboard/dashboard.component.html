@@ -37,7 +37,11 @@
                     </mat-form-field>
                 </form>
                 <div class="list-container">
-                    <app-publisher *ngFor="let publisher of publishers$" [publisher] = "publisher"></app-publisher>             
+                    <app-publisher 
+                        *ngFor="let publisher of publishers$" 
+                        [publisher] = "publisher"
+                        (onDeletePublisherE)="handleDeletePublisher(publisher)"
+                    ></app-publisher>             
                 </div>
             </mat-card>
         </div>
